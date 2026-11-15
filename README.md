@@ -31,7 +31,7 @@ Control Xiaomi / REDMI earbuds straight from an Android-based smartwatch, no pho
 1. 从 [Releases](../../releases) 下载 APK。
 2. 手表开启 开发者选项 → ADB 调试（或无线调试），然后：
    ```
-   adb install -r -g 耳机控制-BudsWatch-v1.1.0.apk
+   adb install -r -g BudsWatch-v1.1.0.apk
    ```
 3. 在手表「设置 → 蓝牙」中连接耳机。若耳机同时连着手机，请先在耳机设置里打开 **双设备连接**。
 4. 打开「耳机控制」。
