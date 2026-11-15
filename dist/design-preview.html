@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><title>Design Preview</title>
+<style>
+  body{margin:0;background:#2b2f36;font-family:system-ui,"Microsoft YaHei",sans-serif;color:#dde3ea;display:flex;gap:40px;padding:30px;flex-wrap:wrap;align-items:flex-start}
+  .watch{width:466px;height:466px;border-radius:50%;background:#000;position:relative;overflow:hidden;box-shadow:0 0 0 14px #111,0 0 0 16px #444}
+  h3{margin:0 0 10px;font-weight:600}
+  .card{position:absolute;left:52px;width:362px;height:147px;border-radius:43px;background:linear-gradient(135deg,#1b2433,#11151c);box-sizing:border-box;padding:13px 17px}
+  .hdr{display:flex;align-items:center;height:37px;padding:0 6px;gap:10px}
+  .hdr .t{flex:1;color:#fff;font-size:20px;font-weight:600}
+  .hdr .s{color:#9aa0a8;font-size:18px}
+  .row{display:flex;gap:10px;margin-top:10px;height:70px}
+  .b{flex:1;border-radius:37px;background:#2a313d;display:flex;align-items:center;justify-content:center;gap:6px;font-size:20px;font-weight:600;color:#dde3ea}
+  .b.on{background:linear-gradient(90deg,#6fd6ff,#4f8bff);color:#000}
+  .b svg{width:28px;height:28px}
+  .mini{position:absolute;left:52px;width:362px;height:147px;border-radius:43px;background:#1a1d22}
+</style></head><body>
+<div>
+  <h3>新图标</h3>
+  <svg width="216" height="216" viewBox="0 0 108 108" style="border-radius:50%">
+    <defs>
+      <radialGradient id="bg" cx="54" cy="38" r="80" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#24375A"/><stop offset=".55" stop-color="#111A2B"/><stop offset="1" stop-color="#070A12"/>
+      </radialGradient>
+      <linearGradient id="ring" x1="54" y1="26" x2="54" y2="82" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#6FD6FF"/><stop offset="1" stop-color="#4F7BFF"/>
+      </linearGradient>
+    </defs>
+    <rect width="108" height="108" fill="url(#bg)"/>
+    <path d="M54,26 A28,28 0 0,0 54,82" stroke="url(#ring)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M63.58,27.69 A28,28 0 0,1 75.45,36 M80.31,44.42 A28,28 0 0,1 80.31,63.58 M75.45,72 A28,28 0 0,1 63.58,80.31" stroke="#fff" stroke-opacity=".9" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path fill="#fff" d="M45,39a7,7 0 1,0 0.01,0z M42,49h6v17a3,3 0 0,1 -6,0z"/>
+    <path fill="#fff" d="M63,39a7,7 0 1,0 0.01,0z M60,49h6v17a3,3 0 0,1 -6,0z"/>
+    <circle cx="50.5" cy="46.5" r="3" fill="#9CC9FF"/><circle cx="57.5" cy="46.5" r="3" fill="#9CC9FF"/>
+  </svg>
+  <p style="max-width:216px;font-size:13px;line-height:1.5">左半圆实线 = 降噪（隔绝外界）<br>右半圆断开 = 通透（声音透进来）<br>中间是一对耳机</p>
+</div>
+<div>
+  <h3>手表卡片屏（466×466，按真实比例）</h3>
+  <div class="watch">
+    <div class="mini" style="top:-90px"></div>
+    <div class="card" style="top:160px">
+      <div class="hdr">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path fill="#6FD6FF" d="M7,4a3.6,3.6 0 1,0 0.01,0z M5.6,8.4h2.8v9.2a1.4,1.4 0 0,1 -2.8,0z"/><path fill="#fff" d="M17,4a3.6,3.6 0 1,0 0.01,0z M15.6,8.4h2.8v9.2a1.4,1.4 0 0,1 -2.8,0z"/></svg>
+        <span class="t">REDMI Buds 8 Pro</span><span class="s">L 100%  R 100%</span>
+      </div>
+      <div class="row">
+        <div class="b"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="2" fill="none"/><path d="M6,18L18,6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>关闭</div>
+        <div class="b on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke="#000" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4.5" fill="#000"/></svg>降噪</div>
+        <div class="b"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="#fff"/><path d="M7.2,7.5a6.5,6.5 0 0,0 0,9 M16.8,7.5a6.5,6.5 0 0,1 0,9 M4,4.6a10.5,10.5 0 0,0 0,14.8 M20,4.6a10.5,10.5 0 0,1 0,14.8" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/></svg>通透</div>
+      </div>
+    </div>
+    <div class="mini" style="top:330px"></div>
+  </div>
+</div>
+</body></html>

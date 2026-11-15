@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">耳机控制</string>
+    <string name="card_name">耳机降噪</string>
+    <string name="quick_name">降噪切换</string>
+    <string name="card_desc">一键切换耳机的降噪 / 通透 / 关闭</string>
+</resources>

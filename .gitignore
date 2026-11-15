@@ -1,0 +1,19 @@
+# Gradle / Android build output
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Built packages are published as GitHub Release assets, not committed
+dist/*.apk
+*.apk
+*.aab
+
+# OS
+.DS_Store
+Thumbs.db

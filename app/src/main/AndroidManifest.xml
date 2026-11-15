@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.bluetooth" android:required="true" />
+
+    <queries>
+        <package android:name="com.heytap.wearable.launcher" />
+    </queries>
+    <uses-feature android:name="android.hardware.type.watch" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.google.android.wearable.standalone" android:value="true" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- One-tap noise / transparency switch; ColorOS Watch lets users pin launcher entries
+             into the card screen's quick-app row (third-party cards are not allowed there). -->
+        <activity
+            android:name=".remote.QuickToggleActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:icon="@mipmap/ic_quick"
+            android:roundIcon="@mipmap/ic_quick"
+            android:label="@string/quick_name"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:taskAffinity="dev.budswatch.quick">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Standard home-screen card (shown on watches whose launcher accepts third-party widgets) --> (standard AppWidget, same size/broadcasts as OPPO's own cards) -->
+        <receiver
+            android:name=".remote.AncCardProvider"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/card_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.heytap.wearable.launcher.action.quick_center_start_showing" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/card_anc_info" />
+        </receiver>
+
+        <!-- Google Wear OS tile -->
+        <service
+            android:name=".remote.AncTileService"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/card_name"
+            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
+            <intent-filter>
+                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
+            </intent-filter>
+            <meta-data
+                android:name="androidx.wear.tiles.PREVIEW"
+                android:resource="@drawable/card_preview" />
+        </service>
+    </application>
+</manifest>
